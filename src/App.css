@@ -1,38 +1,611 @@
-.App {
-  text-align: center;
+:root {
+  --moderate-cyan: hsl(176, 50%, 47%);
+  --dark-cyan: hsl(176, 72%, 28%);
+  --dark-gray: hsl(0, 0%, 48%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Commissioner", sans-serif;
+  font-size: 16px;
+  background-color: rgb(251, 246, 246);
+  line-height: 1.5;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  overflow-x: hidden;
+}
+
+.mainPage {
+  width: 100%;
+}
+
+.headDiv {
+  width: 100%;
+}
+
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background-position: "center";
+  background-repeat: "no-repeat";
+  background-size: "cover";
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.logoImage {
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+nav {
+  padding-inline: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav > p {
+  margin-left: 30px;
   color: white;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.main {
+  width: 600px;
+  text-align: center;
+  position: relative;
+  margin-top: -30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo {
+  position: absolute;
+  top: -30px;
+  left: 45%;
+}
+
+.headDiv,
+.totalLookDiv,
+.productsDiv {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.headDiv > h1 {
+  font-size: 1.5rem;
+}
+
+.headDiv > p {
+  color: var(--dark-gray);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.actionButtons {
+  display: flex;
+}
+
+.backToProject {
+  background-color: var(--moderate-cyan);
+  border: none;
+  color: white;
+  border-radius: 20px;
+  width: 140px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 0.5;
+}
+
+.backToProject:hover {
+  cursor: pointer;
+  background-color: var(--dark-cyan);
+}
+
+.bookmarkBtn {
+  border-radius: 20px;
+  width: 140px;
+  height: 40px;
+  border: none;
+  background-color: rgb(245, 239, 239);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  margin-left: auto;
+}
+
+.bookmarkBtn:hover {
+  cursor: pointer;
+}
+
+.bookmarkImg {
+  margin-right: 0px;
+  width: 40px;
+}
+
+.bookmarkBtn > p {
+  color: var(--dark-gray);
+  margin-inline-start: 10px;
+  margin-inline-end: 5px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.bookmarked > p {
+  color: var(--dark-cyan);
+}
+
+/* TotalLookDiv */
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 100px;
+  margin-bottom: 0;
+}
+
+.line {
+  border-right: 2px solid lightgray;
+  height: 40px;
+}
+
+.total > section > p {
+  font-size: 0.7rem;
+  color: var(--dark-gray);
+  margin-top: -10px;
+}
+
+.fullBar {
+  width: 100%;
+  height: 8px;
+  border-radius: 15px;
+  background-color: lightgrey;
+  display: flex;
+  margin-top: 10px;
+}
+
+.completedBar {
+  background-color: var(--moderate-cyan);
+  margin-right: auto;
+  width: 70%;
+  border-radius: 15px;
+}
+
+/* productsDiv */
+
+.productsDiv {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.productsDiv > p {
+  color: var(--dark-gray);
+}
+
+/* products */
+
+.products {
+  border: 1px solid lightgray;
+  padding: 0 20px;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+.products > h4 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.products > h4 > span {
+  color: var(--moderate-cyan);
+}
+
+.products > p {
+  color: var(--dark-gray);
+  font-size: 0.8rem;
+}
+
+.products > h1 {
+  display: flex;
+  align-items: center;
+}
+
+.products-info > h1 > span {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  margin-left: 10px;
+}
+
+.products-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-info > button {
+  background-color: var(--moderate-cyan);
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 0.7rem;
+  border-radius: 20px;
+  width: 120px;
+  height: 40px;
+}
+
+.select:hover {
+  cursor: pointer;
+  background-color: var(--dark-cyan);
+}
+
+.soldOut {
+  opacity: 0.5;
+}
+
+.products-info > .soldOutBtn {
+  background-color: var(--dark-gray);
+}
+
+/*  ModalPageIsOpen */
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.layout {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
+
+.modalPageDiv {
+  z-index: 9999;
+  background-color: white;
+  width: 60%;
+  min-width: 400px;
+  max-width: 700px;
+  height: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+}
+
+.icon-close-modal {
+  position: fixed;
+  top: 10;
+  left: 90%;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.icon-close-modal > img:hover {
+  content: url("./images/icon-close-modal-hover.svg");
+}
+
+.modalPageDiv > h1 {
+  font-size: 1.5rem;
+}
+
+.modalPageDiv > p {
+  margin-top: 0;
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+
+.modalProducts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  border: 1px solid lightgray;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.selectedBorder {
+  border: 1px solid var(--moderate-cyan);
+}
+
+.modalProduct-left {
+  font-size: 0.9rem;
+}
+
+.modalProduct-name {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.modalProduct-name:hover {
+  color: var(--moderate-cyan);
+  cursor: pointer;
+}
+
+.text {
+  font-size: 0.7rem;
+  color: var(--dark-gray);
+  margin-top: 0;
+}
+
+.modalProduct-name > span {
+  color: var(--moderate-cyan);
+  margin-left: 5px;
+}
+
+.modalProduct-left > span {
+  color: var(--dark-gray);
+}
+
+.modalProduct-name-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radioInput {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+input[type="radio"]::before {
+  content: "";
+}
+
+input[type="radio"]:checked {
+  accent-color: var(--moderate-cyan);
+}
+
+.selectedDiv {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / span 2;
+}
+
+.line-break {
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.selectedInputDiv {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.selectedInputDiv > label {
+  color: var(--dark-gray);
+  font-size: 0.8rem;
+  align-self: center;
+}
+
+.pledgeInput {
+  width: 70px;
+  height: 35px;
+  margin-left: auto;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dollar {
+  position: absolute;
+  top: -10px;
+  right: 140px;
+  color: lightgray;
+}
+
+.pledgeInput:focus {
+  outline: 1px solid var(--moderate-cyan);
+}
+
+.continueBtn {
+  width: 80px;
+  height: 35px;
+  border: none;
+  background-color: var(--moderate-cyan);
+  color: white;
+  font-weight: 700;
+  font-size: 0.6rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.continueBtn:hover {
+  background-color: var(--dark-cyan);
+}
+
+/* ThanksPage */
+
+.thanksDiv {
+  z-index: 9999;
+  background-color: white;
+  width: 40%;
+  min-width: 340px;
+  max-width: 500px;
+  height: 360px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 40px;
+  border-radius: 10px;
+  line-height: 1.3;
+}
+
+.thanksDiv > img {
+  align-self: center;
+  width: 60px;
+  height: 60px;
+}
+
+.thanksDiv > h1 {
+  font-size: 1.4rem;
+}
+
+.thanksDiv > p {
+  color: var(--dark-gray);
+  margin-top: 0;
+}
+
+.thanksDiv > button {
+  align-self: center;
+  background-color: var(--moderate-cyan);
+  color: white;
+  font-weight: 700;
+  width: 90px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  cursor: pointer;
+}
+
+.thanksDiv > button:hover {
+  background-color: var(--dark-cyan);
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow: auto;
+    overflow-x: scroll;
   }
-  to {
-    transform: rotate(360deg);
+  header,
+  .main,
+  .modalProducts,
+  .thanksDiv {
+    max-width: 100%;
+    width: 340px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .menuBtn {
+    background-color: transparent;
+    border: none;
+  }
+
+  .iconMenu {
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    width: 280px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 999999;
+    top: 50px;
+    left: 30px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown > p {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .menu-line {
+    border-bottom: 0.5px solid var(--dark-gray);
+    width: 100%;
+  }
+
+  .logoImage {
+    width: 100px;
+    height: auto;
+  }
+
+  .totalLookDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .line {
+    border-right: none;
+    border-top: 2px solid lightgray;
+    width: 100%;
+    height: 5px;
+  }
+
+  .products-info {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .radioInput {
+    margin-right: 10px;
+  }
+
+  .thanksDiv {
+    height: 350px;
+  }
+
+  .thanksDiv > button {
+    height: 40px;
   }
 }
